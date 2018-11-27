@@ -15,7 +15,7 @@ def song_detail(request, pk):
     return render(request, 'songs/song_detail.html', {'song': detail})
 
 def performer_detail(request, pk):
-    performer = get_object_or_404(Performer,  name=pk)
+    performer = get_object_or_404(Performer,  pk=pk)
     return render(request, 'songs/performer_detail.html', {'performer': performer})
 #    performer = get_object_or_404(Performer, pk=pk)
 #    return render(request, 'songs/performer_detail', {'performer': performer})

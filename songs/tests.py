@@ -68,4 +68,4 @@ class ViewTests(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.context['performer'], self.performer)
         self.assertTemplateUsed(resp, 'songs/performer_detail.html')
-        self.assertContains(resp, str(self.song))
+        self.assertContains(resp, str(self.performer))
