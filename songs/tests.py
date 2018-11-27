@@ -13,7 +13,7 @@ class PerformerModelTests(TestCase):
 
 
 class SongModelTests(TestCase):
-    def setup(self):
+    def setUp(self):
         self.performer = Performer.objects.create(name='Andre Chalkley')
 
     def test_song_string(self):
@@ -21,19 +21,17 @@ class SongModelTests(TestCase):
         song = Song.objects.create(
         title =" Don't Stop Believing",
         artist = "Journey",
-        length=250,
         performer = self.performer)
         self.assertIn(song.title, str(song))
         self.assertIn(song.artist,str(song))
 
 class ViewTests(TestCase):
-    def setup(self):
+    def setUp(self):
         self.performer = Performer.objects.create(name='Craig Dennis')
-        slef.song = Song.objects.create(
+        self.song = Song.objects.create(
         title = 'I Wanna Be Sedated',
         artist='The Ramones',
-        length=149,
-        performer=self.performer
+        performer=self.performer,
         )
 
     def test_song_list_view(self):
