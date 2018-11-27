@@ -12,7 +12,7 @@ def song_list(request):
 def song_detail(request, pk):
     #song_detail = Song.objects.get(pk=pk)
     detail = get_object_or_404(Song, pk=pk)
-    return render(request, 'songs/song_detail.html', {'songs': detail})
+    return render(request, 'songs/song_detail.html', {'song': detail})
 
 def performer_detail(request, pk):
     performer = get_object_or_404(Performer, pk=pk)
