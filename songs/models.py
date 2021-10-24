@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Performer(models.Model):
     name = models.CharField(max_length=255)
-    # performer = models.CharField(max_length=255, default='')
+    performer = models.CharField(max_length=255, default='')
 
     def __str__(self):
         return self.name
