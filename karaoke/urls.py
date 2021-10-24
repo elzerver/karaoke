@@ -18,7 +18,9 @@ from django.contrib import admin
 
 from . import views
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'songs'),
+    url(r'^songs/', include('songs.urls', namespace='songs')),
+    url(r'^$', views.home, name='home'),
 ]
