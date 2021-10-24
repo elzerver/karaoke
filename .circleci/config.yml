@@ -18,6 +18,10 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - add_ssh_keys:
+          fingerprints: 
+          - "SHA256:bYIUHU9RtWyoZLbxkBwHhezRlp60GWkLTDeOiTLZBcY"
+
       - checkout
 
       # Download and cache dependencies
@@ -48,7 +52,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            python manage.py makemigrations && python manage.py migrate && python manage.py test
 
       - store_artifacts:
           path: test-reports
